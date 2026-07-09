@@ -3,8 +3,6 @@ title = "Data so far"
 description = "Machine-readable data built from RTI responses. Software, the institutions that use it, and what it costs."
 +++
 
-These tables are built directly from our open spreadsheet and validated on every change. Sort, filter and search to explore.
-
 ## Total Amount being spent
 
 {{ spend_counter(csv="data/costs.csv") }}
@@ -26,5 +24,3 @@ Yearly software expenditure reported by each responding institute. Hover or focu
 ## Total costs
 
 {{ data_table(csv="data/costs.csv", schema="data/costs.schema.json", caption="Reported annual software expenditure per institution.") }}
-
-Source spreadsheet: [open data on Google Sheets](https://docs.google.com/spreadsheets/d/1mleblSlJoORwS5xbOM5awZ9LDCC8cvbYjJyuYtg5kl8/edit).
