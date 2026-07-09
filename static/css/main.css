@@ -164,6 +164,7 @@ main {
    Header + CSS dropdown
    ========================================================================== */
 .site-header {
+  position: relative;
   padding-block: clamp(1.25rem, 0.8rem + 1.5vw, 2.4rem);
 
   & .wrap {
@@ -171,6 +172,32 @@ main {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+  }
+}
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+
+  & .icon {
+    inline-size: 20px;
+    block-size: 20px;
+  }
+  & .icon:last-child {
+    display: none;
+  }
+  &[aria-expanded="true"] .icon:first-child {
+    display: none;
+  }
+  &[aria-expanded="true"] .icon:last-child {
+    display: block;
   }
 }
 .brand {
@@ -766,6 +793,7 @@ main {
 .counter {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   gap: 0.1em;
   font-family: var(--font-display);
@@ -816,6 +844,7 @@ main {
 }
 .counter__info {
   align-self: center;
+  flex-shrink: 0;
   inline-size: 1.25rem;
   block-size: 1.25rem;
   margin-inline-start: 0.4rem;
@@ -1176,6 +1205,40 @@ main {
   .table-modes {
     display: none;
   }
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 100%;
+    z-index: 60;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 8px;
+    background: oklch(from var(--bg) l c h / 0.96);
+    backdrop-filter: blur(4px);
+    border-block-start: 1px solid var(--border);
+
+    &[data-open] {
+      display: flex;
+    }
+    & > a {
+      padding: 10px 12px;
+    }
+    & .menu,
+    & .menu summary,
+    & .menu__panel {
+      inline-size: 100%;
+    }
+    & .menu__panel {
+      position: static;
+      margin-block-start: 4px;
+      box-shadow: none;
+    }
+  }
   .hero {
     flex-direction: column;
 
@@ -1183,6 +1246,7 @@ main {
       order: -1;
       inline-size: 100%;
       max-inline-size: 280px;
+      margin-inline: auto;
     }
   }
   .reason {
