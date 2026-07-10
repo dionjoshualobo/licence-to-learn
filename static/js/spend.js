@@ -1,9 +1,11 @@
 /* Live "total reported spend" counter. Starts at the reported total (base) and
    climbs: value = base + rate * secondsSince(anchor), Indian-grouped, digits
    roll. Anchor is page load in "session" mode (default, resets on reload) or
-   build time (data-epoch) in "progressive" mode (keeps climbing across visits
-   until the next rebuild) - see COUNTER_MODE below. Redraw cadence cycles
-   through data-intervals (seconds) so the tick feels alive.
+   a fixed reference date (data-epoch, set in the spend_counter shortcode,
+   NOT build time) in "progressive" mode, so the value is a deterministic
+   function of real calendar time, same across every rebuild/deploy - see
+   COUNTER_MODE below. Redraw cadence cycles through data-intervals (seconds)
+   so the tick feels alive.
    prefers-reduced-motion -> static total, no motion.
    Also wires the stats popovers: one for the total (.counter__info) and one per
    spend card (.card-info, showing yearly stats + software-tools count). */
@@ -11,8 +13,9 @@
   "use strict";
   // "session" (default): anchors to page load, starts at the reported total
   //   and climbs for this visit only, resets on reload.
-  // "progressive": anchors to build time (data-epoch), keeps climbing across
-  //   visits/days, only resets on the next site rebuild.
+  // "progressive": anchors to data-epoch (a fixed date, see spend_counter
+  //   shortcode), keeps climbing across visits/days/rebuilds, deterministic
+  //   for a given real moment regardless of when the site was last built.
   const COUNTER_MODE = "progressive"; // "session" | "progressive"
   const fmt = new Intl.NumberFormat("en-IN");
   const money = new Intl.NumberFormat("en-IN", {
@@ -63,6 +66,7 @@
     if (!out) return;
     const base = num(c.dataset.base);
     const rate = num(c.dataset.rate);
+    const rateAnnual = num(c.dataset.rateAnnual);
     const epoch = num(c.dataset.epoch);
     const progressive = COUNTER_MODE === "progressive" && epoch > 0;
 
@@ -100,7 +104,7 @@
     // cadence never causes drift.
     const t0 = Date.now();
     const value = () => progressive
-      ? base + rate * (Date.now() / 1000 - epoch)
+      ? base + rateAnnual * (Date.now() / 1000 - epoch)
       : base + rate * ((Date.now() - t0) / 1000);
 
     if (reduce || !rate) {

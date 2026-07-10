@@ -1,15 +1,32 @@
 {# Total reported spend, ticking up live from the reported total.
-   base  = sum of `total` column (reported 5-year spend), shown by default.
-   rate  = base / 90000 = total-annual (base/5) / 300 working days / 60, i.e.
-           one real viewing minute represents one working day of spend
-           (~₹7,373/sec here). Visible, and matches the "keep counting" story.
-   epoch = build time (unix seconds). Two JS modes read the same base/rate:
-           "session" anchors to page load (resets to base on every visit,
-           the default); "progressive" anchors to epoch, so the value keeps
-           climbing across visits/days and never resets until the next build.
+   base  = sum of `total` column (reported spend across `years` FYs), shown
+           by default.
+   years = header count minus `institute` and `total` (the FY columns in
+           between), so adding another fy2025_26-style column to the CSV/
+           schema grows this automatically, nothing to edit here.
+   rate  = base / 90000 = total-annual (base/years) / 300 working days / 60,
+           i.e. one real viewing minute represents one working day of spend
+           (~₹7,373/sec here). A sped-up visual effect for "session" mode
+           only (resets every page load, so elapsed time is always a few
+           minutes) - NOT a real annual rate, it would re-add the whole
+           multi-year base every ~25 real hours if left running.
+   rate_annual = (base / years) / (365 * 24 * 60 * 60), i.e. the average
+           single year's spend spread over the seconds in a real year. The
+           true historical average, used by "progressive" mode so the value
+           extrapolates sensibly over real elapsed calendar time instead of
+           exploding.
+   epoch = a fixed reference date, NOT build time: 2025-04-01 00:00 IST, the
+           day after FY2024-25 (the last reported year) ends. "session"
+           anchors to page load (resets to base every visit, the default);
+           "progressive" anchors to epoch with rate_annual, so the value is
+           a deterministic function of real calendar time and comes out
+           identical across rebuilds/deploys, it only needs bumping forward
+           when a new FY's data is reported.
    data-intervals = maintainer-editable redraw cadence in seconds.
    {{ spend_counter(csv="data/costs.csv") }} #}
 {% set data = load_data(path=csv) %}
+{% set header_count = data.headers | length %}
+{% set years = header_count - 2 %}
 {% set_global base = 0 %}
 {% set_global totals = [] %}
 {% set_global names = [] %}
@@ -20,10 +37,13 @@
   {% set_global names = names | concat(with=row[0]) %}
 {% endfor %}
 {% set rate = base / 90000 %}
-{% set epoch = now(timestamp=true) %}
+{% set rate_annual = base / years / (365 * 24 * 60 * 60) %}
+{% set epoch = 1743445800 %}
 <div class="counter"
+     id="spend-counter"
      data-base="{{ base }}"
      data-rate="{{ rate }}"
+     data-rate-annual="{{ rate_annual }}"
      data-epoch="{{ epoch }}"
      data-intervals="1,2,5,2"
      data-totals="{{ totals | join(sep=',') }}"

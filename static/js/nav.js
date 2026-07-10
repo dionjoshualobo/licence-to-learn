@@ -26,10 +26,14 @@
 
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
+  const iconOpen = toggle && toggle.querySelector("[data-icon-open]");
+  const iconClose = toggle && toggle.querySelector("[data-icon-close]");
   if (toggle && nav) {
     const setOpen = (v) => {
       nav.toggleAttribute("data-open", v);
       toggle.setAttribute("aria-expanded", String(v));
+      if (iconOpen) iconOpen.hidden = v;
+      if (iconClose) iconClose.hidden = !v;
     };
     toggle.addEventListener("click", () => setOpen(!nav.hasAttribute("data-open")));
     nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));

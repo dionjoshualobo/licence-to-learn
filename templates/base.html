@@ -23,8 +23,8 @@
           <img src="{{ get_url(path='img/logo.svg') | safe }}" alt="licence to Learn" width="90" height="30" />
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
-          {{ ui::icon(name="menu") }}
-          {{ ui::icon(name="x") }}
+          <span data-icon-open>{{ ui::icon(name="menu") }}</span>
+          <span data-icon-close hidden>{{ ui::icon(name="x") }}</span>
         </button>
         <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="{{ get_url(path='/data/') | safe }}">Data so far</a>
