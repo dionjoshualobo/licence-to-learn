@@ -10,9 +10,9 @@ Why RTIs? Because this information isn't clearly available elsewhere — for exa
 
 The responses slowly trickled in, and the names and numbers surprised us. But before we reveal them — what do _you_ think an engineering institute spends on software every year? ₹1 lakh? ₹10 lakh? ₹1 crore? ₹10 crore? And what software? Hint: if you graduated with a Computer Science degree, your answer is probably not the biggest line item.
 
-So far, we've seen institutes spend anywhere from ~₹25 lakh up to ₹3 crore per year. The largest line items are engineering software — MATLAB, ANSYS, AutoCAD — with smaller but significant spend on operating systems (Microsoft Windows) and SaaS (Google Workspace). We've only filed with the NITs and IIMs so far, and haven't received every response yet; several have been "disposed of" and we're working the appeals. But the numbers paint a stark picture. It appears the Indian higher-education sector spends **at least ₹100 crore per year** on proprietary software licenses, on a conservative estimate of 100 engineering colleges spending ≥₹1 crore each.
+So far, we've seen institutes spend anywhere from ~₹25 lakh up to ₹3 crore per year. The largest line items are engineering software — MATLAB, ANSYS, AutoCAD — with smaller but significant spend on operating systems (Microsoft Windows) and SaaS (Google Workspace). We've only filed with the NITs and IIMs so far, and haven't received every response yet; several have been "disposed of" and we're working the appeals. But the numbers paint a stark picture. It appears the Indian higher-education sector spends **at least ₹100 crore per year** on proprietary software licences, on a conservative estimate of 100 engineering colleges spending ≥₹1 crore each.
 
-{% quote(author="License to Learn") %}
+{% quote(author="licence to Learn") %}
 But the money isn't the real problem — it's the lack of self-reliance.
 {% end %}
 

@@ -1,7 +1,7 @@
 with import <nixpkgs> { };
 
 pkgs.mkShell {
-  name = "license-to-learn";
+  name = "licence-to-learn";
 
   nativeBuildInputs = [ pkgs.bashInteractive ];
 
@@ -21,6 +21,6 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    echo "license-to-learn dev shell — run 'just' to list tasks"
+    echo "licence-to-learn dev shell — run 'just' to list tasks"
   '';
 }

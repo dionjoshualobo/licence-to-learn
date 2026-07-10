@@ -1,6 +1,6 @@
-# Zola configuration | License to Learn
-base_url = "https://licensetolearn.in"
-title = "License to Learn"
+# Zola configuration | Licence to Learn
+base_url = "https://licencetolearn.in"
+title = "Licence to Learn"
 description = "Mapping every proprietary-software dependency across India's public universities."
 default_language = "en"
 

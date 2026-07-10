@@ -1,4 +1,4 @@
-# License to Learn - task runner.
+# licence to Learn - task runner.
 # Every recipe is an off-the-shelf CLI; there is no hand-maintained logic here.
 
 set shell := ["bash", "-uc"]

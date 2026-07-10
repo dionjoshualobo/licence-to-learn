@@ -3,7 +3,7 @@
 {% block breadcrumb %}
 <nav class="breadcrumb wrap" aria-label="Breadcrumb">
   <ol>
-    <li><a href="{{ get_url(path='/') | safe }}">License to Learn</a></li>
+    <li><a href="{{ get_url(path='/') | safe }}">licence to Learn</a></li>
     {% if page.components | length > 1 %}
       {% set sec = page.components | first %}
       <li><a href="{{ get_url(path='/' ~ sec ~ '/') | safe }}">{{ sec | replace(from='-', to=' ') | title }}</a></li>

@@ -1,4 +1,4 @@
-# License to Learn
+# licence to Learn
 
 A FOSS United campaign mapping the proprietary software that India's public
 universities depend on, what it costs, and who controls it. Data comes from

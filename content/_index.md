@@ -1,5 +1,5 @@
 +++
-title = "License to Learn"
+title = "licence to Learn"
 template = "index.html"
 
 [extra]
@@ -8,14 +8,14 @@ hero_lede = "We are mapping every proprietary software dependency across India's
 
 [extra.nit]
 href = "/cases/nits/"
-body = "RTIs filed with 24 institutes, most didn't respond, 9 reported a bill that adds up to **35 crores for the last 4 years**\\*"
-note = "*Floor estimate based on the responses received so far; most institutes are yet to reply."
+body = "RTIs filed with 24 institutes, most didn't respond, 9 reported a bill that adds up to **35 crores for the last 4 years**"
+note = "Floor estimate based on the responses received so far; most institutes are yet to reply."
 
 # Illustrations are optional. Drop a file in static/img/ and set art = "students-bills.svg".
 [[extra.reasons]]
 title = "Students graduate, the bills don't"
 art = ""
-body = "Institutions spend crores every year, teaching students software they will never own. The moment a batch leaves campus, the student licenses disappear. And then the invoices follow them to their first employer, or their own pockets!\n\nEvery engineer trained on MATLAB, every designer working with Adobe, every researcher using ANSYS is handed a lifelong dependency on the day they graduate."
+body = "Institutions spend crores every year, teaching students software they will never own. The moment a batch leaves campus, the student licences disappear. And then the invoices follow them to their first employer, or their own pockets!\n\nEvery engineer trained on MATLAB, every designer working with Adobe, every researcher using ANSYS is handed a lifelong dependency on the day they graduate."
 
 [[extra.reasons]]
 title = "Public Money, Public Code?"
