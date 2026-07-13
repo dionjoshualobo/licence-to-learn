@@ -6,10 +6,15 @@ template = "index.html"
 hero_title = "Indian academia runs on software it doesn't own, can't audit, and could lose overnight!"
 hero_lede = "We are mapping every proprietary software dependency across India's public universities, through Right to Information requests, community-led audits and more to find out what it costs, who controls it and what happens when the lights go out."
 
+[extra.total_stat]
+title = "Total expenditure as reported"
+number = "₹66 Cr"
+note = "*These numbers are not exhaustive; if anything, they are only the floor."
+
 [extra.nit]
 href = "/cases/nits/"
-body = "RTIs filed with 24 institutes, most didn't respond, 9 reported a bill that adds up to **35 crores for the last 4 years**"
-note = "Floor estimate based on the responses received so far; most institutes are yet to reply."
+body = "RTIs filed with 24 institutes, most didn't respond, 9 reported a bill that adds up to **66 crores for the last 4 years**"
+note = "Floor estimates based on the responses received, majority of them did not respond properly"
 
 # Illustrations are optional. Drop a file in static/img/ and set art = "students-bills.svg".
 [[extra.reasons]]

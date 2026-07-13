@@ -21,6 +21,10 @@
     </div>
   </section>
 
+  {% if e.total_stat %}
+  {{ ui::stat_card(title=e.total_stat.title, number=e.total_stat.number, note=e.total_stat.note | default(value="")) }}
+  {% endif %}
+
   {% if e.nit %}
   <a class="nit" href="{{ e.nit.href | safe }}">
     <span class="nit__head">

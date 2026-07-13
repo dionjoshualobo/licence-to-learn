@@ -60,6 +60,15 @@
 </nav>
 {% endmacro breadcrumb %}
 
+{# Headline stat: small title, big number, optional small-print note below. #}
+{% macro stat_card(title, number, note="") %}
+<div class="stat-card">
+  <span class="stat-card__title">{{ title }}</span>
+  <span class="stat-card__number">{{ number }}</span>
+  {% if note %}<span class="stat-card__note">{{ note }}</span>{% endif %}
+</div>
+{% endmacro stat_card %}
+
 {# Reason block: square art (optional image) + heading + body paragraphs #}
 {% macro reason(title, body, art="") %}
 <div class="reason">

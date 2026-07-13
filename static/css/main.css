@@ -357,6 +357,34 @@ main {
 }
 
 /* NIT / case card (also reused for case listing) */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.stat-card__title {
+  color: var(--body);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.stat-card__number {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  line-height: 1.1;
+}
+.stat-card__note {
+  color: var(--body);
+  font-size: var(--fs-xs);
+  font-style: italic;
+}
+
 .nit {
   display: flex;
   flex-direction: column;
@@ -460,6 +488,25 @@ main {
     font-size: var(--fs-hero);
     letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+}
+.notfound {
+  padding-block-start: clamp(2rem, 1rem + 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+
+  & img {
+    max-inline-size: 160px;
+    block-size: auto;
+  }
+  & h1 {
+    margin-block: 0;
+  }
+  & .hero__lede {
+    max-inline-size: 32rem;
   }
 }
 .prose {
