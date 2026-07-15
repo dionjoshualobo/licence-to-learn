@@ -51,7 +51,7 @@
     const names = (c.dataset.names || "").split(",");
     if (!totals.length || !c.dataset.totals) return;
 
-    const sorted = [...totals].sort((a, b) => a - b);
+    const sorted = [...totals].filter(v => v > 0).sort((a, b) => a - b);
     const n = sorted.length;
     const sum = sorted.reduce((a, b) => a + b, 0);
     const mean = sum / n;
